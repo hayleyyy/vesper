@@ -1,10 +1,18 @@
 $color-lightgreen: #bbd786;
-$color-midgreen: #a4c26c;
-$color-darkgreen: #7ca15e;
+$color-midgreen: #316440;
+$color-darkgreen: #1b3827;
 $color-beige: #dbb78d;
 $color-yellow: #fcea7f;
 $color-blue: #e0f1f3;
 $color-offwhite: #f6f1e9;
+
+$font1: "Averia Serif Libre", serif; //like! esp for small headers
+$font2: "Vollkorn", serif; // decent body font
+$font3: "Brygada 1918", serif; // not bad for body. boring for headers.
+$font4:
+  "Cormorant Garamond", serif; // charmingly spooky, nice for body and header
+$font5: "EB Garamond", serif; // works for both body and headers
+$font6: "Alice", serif; // nice as body font
 
 body,
 html,
@@ -14,9 +22,36 @@ html,
   scroll-behavior: smooth;
 }
 
+img {
+  max-width: 100%;
+}
+
+a {
+  color: $color-midgreen;
+  text-decoration: none;
+  &:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+// Averia + Garamond
 body {
   background-color: #fff;
   color: #000;
+  font-family: $font2;
+  font-size: 17px;
+  font-weight: 400;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font6;
+    font-weight: 600;
+    font-style: italic;
+  }
 }
 
 .app {
@@ -56,21 +91,8 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
-.product-card {
-  background-color: $color-beige;
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
-.product-info {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-}
-
 .footer-main {
-  background-color: #14281c;
+  background-color: $color-darkgreen;
   height: 100px;
 }
 
@@ -83,16 +105,99 @@ body {
 .gallery-item {
   break-inside: avoid;
   margin-bottom: 1rem;
-  border-radius: 12px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .gallery-item img {
   width: 100%;
   display: block;
-  border-radius: 12px;
+}
+.gallery-container {
+  position: relative;
+  padding-top: 60px;
+}
+
+.gallery-detail {
+  img {
+    max-width: 100%;
+  }
 }
 
 .gallery-info {
   padding-top: 0.5rem;
+}
+
+// ---- Mixins ---- //
+
+@mixin transition($prop: all, $time: 1s, $ease: ease-out) {
+  -webkit-transition: $prop $time $ease;
+  -moz-transition: $prop $time $ease;
+  -ms-transition: $prop $time $ease;
+  -o-transition: $prop $time $ease;
+  transition: $prop $time $ease;
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+// ---- Variables ---- //
+
+$black: #000;
+$white: #fff;
+
+// ---- Close Button ---- //
+
+.close-button {
+  border: none; /* Removes default 3D bevel borders */
+  box-shadow: none; /* Removes any custom 3D shadows */
+  transform: none; /* Disables any push-down movement animations */
+  @include square(40px);
+  border-radius: 10px;
+  background: $color-darkgreen;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  z-index: 200;
+  text-indent: -9999px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+
+    width: 55%;
+    height: 2px;
+
+    top: 48%;
+    left: 24%;
+
+    background: $white;
+
+    @include rotate(-45deg);
+    @include transition($time: 0.3s);
+  }
+
+  &::after {
+    @include rotate(45deg);
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      @include rotate(180deg);
+    }
+  }
 }

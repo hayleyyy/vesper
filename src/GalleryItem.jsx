@@ -2,19 +2,13 @@ import React from "react";
 import "reactstrap";
 import { Container, Row, Col, Button } from "reactstrap";
 
-function GalleryItem({ item }) {
+function GalleryItem({ item, onSelect }) {
   return (
-    <div className="gallery-item">
-      <a href={item.full} target="_blank" rel="noreferrer">
-        <img src={item.thumb} alt={item.title} loading="lazy" />
-      </a>
+    <div className="gallery-item" onClick={() => onSelect(item)}>
+      <img src={item.thumb} alt={item.title} loading="lazy" />
 
       <div className="gallery-info">
-        <h2>{item.title}</h2>
-
-        {item.description && <p>{item.description}</p>}
-
-        {item.medium && <span>{item.medium}</span>}
+        <h3>{item.title}</h3>
       </div>
     </div>
   );
