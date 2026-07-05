@@ -13,7 +13,7 @@ import {
   DropdownItem,
   NavbarText,
 } from "reactstrap";
-import logo from "./assets/logo.png";
+import logo from "./assets/logo-dk.png";
 
 const NavbarMain = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,19 +22,19 @@ const NavbarMain = (props) => {
 
   return (
     <>
-      <div class="site-nav">
+      <div className="site-nav">
         <Navbar light expand="md" className="navbar-main">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
+            <Nav className="mx-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="#gallery">Illustration</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
+                <NavLink href="#about">About Me</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#gallery">Contact</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

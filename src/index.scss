@@ -4,16 +4,19 @@ $color-darkgreen: #7ca15e;
 $color-beige: #dbb78d;
 $color-yellow: #fcea7f;
 $color-blue: #e0f1f3;
+$color-offwhite: #f6f1e9;
 
 body,
 html,
 #root {
   height: 100%;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #fff;
+  color: #000;
 }
 
 .app {
@@ -24,19 +27,19 @@ body {
 .app-content {
   flex: 1;
   padding: 20px;
-  background-color: $color-blue;
+  background-color: $color-offwhite;
 }
 
 .site-nav {
-  padding-top: 60px;
-  background-color: $color-lightgreen;
+  padding-top: 80px;
+  background-color: $color-offwhite;
 }
 .navbar-main {
-  background-color: $color-midgreen;
-  color: #fff;
+  background-color: $color-offwhite;
+  color: #000;
   height: 30px;
   a {
-    color: #fff;
+    color: #000;
   }
 }
 
@@ -67,8 +70,8 @@ body {
 }
 
 .footer-main {
-  background-color: $color-lightgreen;
-  height: 200px;
+  background-color: #14281c;
+  height: 100px;
 }
 
 .masonry-gallery {

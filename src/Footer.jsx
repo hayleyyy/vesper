@@ -6,7 +6,7 @@ import logo from "./assets/logo.png";
 const Footer = () => {
   return (
     <>
-      <div className="footer-main">
+      <div id="footer" className="footer-main">
         <Container>Here's the footer</Container>
       </div>
     </>
